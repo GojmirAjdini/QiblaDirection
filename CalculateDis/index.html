@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <style>
+
+        body{
+            background-image: url("kaaba.jpg");
+            background-position: 0px;
+            background-position-y: -200px;
+        }
+        *{
+            font-family: "Montserrat";
+            
+            
+        }
+       
+        h1{
+
+            text-transform:uppercase;
+            margin-top: 50px;
+            color: white;
+        }
+        form input{
+
+            margin: 10px;
+            padding:10px;
+        
+        }
+        #container{
+
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #form{
+
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 70px;
+            border: 2px solid rgb(107, 106, 106);
+            border-radius: 20px;
+            padding: 50px;
+            
+        }
+
+        .button{
+            transition: 0.2s ease-in-out;
+            border-radius: 10px;
+            border-color: aliceblue;
+            background-color: rgb(240, 240, 240);
+           
+        }
+
+        .button:hover{
+
+            background-color: rgba(198, 185, 229, 0.452);
+            color: white;
+            transition: 0.2s ease-in-out;
+        }
+
+        .input{
+
+            border-radius: 10px;
+            border-color:aliceblue;
+            background-color:rgba(240, 240, 240, 0.886);
+            color: black;
+          
+        }
+       .input:focus{
+
+        background-color: rgb(216, 216, 216);
+       }
+        p{
+            color: black;
+            background-color:rgb(240, 240, 240);
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <h1>Kalkulo distancën mes lokacionit tuaj dhe Qabes</h1>
+    
+    <div id="form">
+    <form onsubmit="shtypDistancen(event)" action="">
+
+        <input class="input" placeholder="Gjerësia gjeografike 1" type="text" name="latitude1" id="latitude1" required><br>
+        <input class="input" placeholder="Gjatësia gjeografike 1" type="text" name="longitude1" id="longitude1" required> <br>
+
+        <input class="button" type="submit" value="Kalkulo" > 
+        <input class="button" type="reset" name="" value="Reset" id="">
+    </form>
+    <p id="result"></p>
+    </div>
+</div>
+    <script src="./index.js"></script>
+</body>
+</html>
