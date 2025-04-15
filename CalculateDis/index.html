@@ -67,23 +67,11 @@
             color: white;
             transition: 0.2s ease-in-out;
         }
-
-        .input{
-
-            border-radius: 10px;
-            border-color:aliceblue;
-            background-color:rgba(240, 240, 240, 0.886);
-            color: black;
-          
-        }
-       .input:focus{
-
-        background-color: rgb(216, 216, 216);
-       }
         p{
             color: black;
             background-color:rgb(240, 240, 240);
             border-radius: 5px;
+            
         }
 
     </style>
@@ -93,13 +81,12 @@
     <h1>Kalkulo distancën mes lokacionit tuaj dhe Qabes</h1>
     
     <div id="form">
-    <form onsubmit="shtypDistancen(event)" action="">
+    <form onsubmit="distanca(event)" action="">
 
-        <input class="input" placeholder="Gjerësia gjeografike 1" type="text" name="latitude1" id="latitude1" required><br>
-        <input class="input" placeholder="Gjatësia gjeografike 1" type="text" name="longitude1" id="longitude1" required> <br>
+        <input class="input" placeholder="Gjerësia gjeografike 1" type="text" name="latitude1" id="latitude1" hidden><br>
+        <input class="input" placeholder="Gjatësia gjeografike 1" type="text" name="longitude1" id="longitude1" hidden> <br>
 
         <input class="button" type="submit" value="Kalkulo" > 
-        <input class="button" type="reset" name="" value="Reset" id="">
     </form>
     <p id="result"></p>
     </div>

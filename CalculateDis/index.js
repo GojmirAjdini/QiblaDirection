@@ -1,25 +1,42 @@
+let latitude = null;
+let longitude = null;
 
-function shtypDistancen(event){
+async function locate(){
+navigator.geolocation.getCurrentPosition(
+    (position)=>{
 
-    event.preventDefault();
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+
+    document.getElementById("latitude1").value = parseFloat(latitude);
+    document.getElementById("longitude1").value = parseFloat(longitude);
+    console.log(`Latitude: ${latitude}  \nLongitude: ${longitude}`);
+
+    },
+    (error) =>{
+        console.log(error.message);
+    }
+);
+}
+window.onload = locate;
+
+async function distanca(event) {
     
-
-let lat1 = parseFloat(document.getElementById("latitude1").value);
-let lon1 = parseFloat(document.getElementById("longitude1").value);
-
+    event.preventDefault();
+   
+    if(latitude === null || longitude === null){
+        alert("Duhet marrë lokacionin...");
+        return;
+    }
+else{
 const lat2 = 21.4225;
 const lon2 = 39.8262;
 
-if(isNaN(lat1) || isNaN(lon1) ){
-    alert("Ju lutem vendosni të gjithë të dhënat!");
-        
-}
-else {
 const R = 6371; 
-const φ1 = lat1 * Math.PI/180; 
+const φ1 = latitude * Math.PI/180; 
 const φ2 = lat2 * Math.PI/180;
-const Δφ = (lat2-lat1) * Math.PI/180;
-const Δλ = (lon2-lon1) * Math.PI/180;
+const Δφ = (lat2-latitude) * Math.PI/180;
+const Δλ = (lon2-longitude) * Math.PI/180;
 
 const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
           Math.cos(φ1) * Math.cos(φ2) *
@@ -35,6 +52,5 @@ const bearing = (θ * 180 / Math.PI + 360) % 360;
 const d = R * c; 
 
 document.getElementById("result").innerHTML = `Distanca: ${d.toFixed(2)} km<br>Kompasi: ${bearing.toFixed(2)}°`;
-
 }
 }
